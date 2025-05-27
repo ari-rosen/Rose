@@ -8,3 +8,5 @@ Zelda/
 debug_run.sh
 flappy.sh
 
+*.DS_Store
+*.clangd

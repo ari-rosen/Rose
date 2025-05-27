@@ -1,9 +1,0 @@
-CompileFlags:
-  Add: 
-    - -I/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/src
-    - -I/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/dependencies/glfw/include
-    - -I/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/dependencies/glad/include
-    - -I/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/dependencies/
-    - -I/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/dependencies/stb
-    - -DROSE_PLATFORM_MACOS
-    - -DROSE_BUILD_DYLIB
