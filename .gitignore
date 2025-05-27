@@ -1,0 +1,10 @@
+.DS_Store
+
+RoseEngine/build/
+FlappyBird/
+RoseApp/
+Zelda/
+
+debug_run.sh
+flappy.sh
+
