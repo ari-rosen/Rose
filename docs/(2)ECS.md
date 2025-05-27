@@ -29,8 +29,8 @@ To add components to a ```Rose::GameObject``` that has been registered with ```c
 The ```addComponents``` method takes in the object as an argument, and the type of component as the template argument
 ```cpp
 void onStart() override {
-		exampleObject = createGameObject();
-		addComponents<Rose::TransformComponent>(exampleObject);
+	exampleObject = createGameObject();
+	addComponents<Rose::TransformComponent>(exampleObject);
 }
 ```
 In Rose, components are just structs that only contain data.
