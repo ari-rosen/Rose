@@ -10,7 +10,14 @@ public:
 ```
 Optionally, a ```Rose::TextureParameter``` can be specified as well.
 
-Rose defaults to filtering images using linear interpolation, which can make pixel art look fuzzy. To specify a custom filtering mode, create a ```Rose::TextureParameter``` and use it as a second argument in ```createTexture```. Pixel art looks best with a ```Nearest``` filter.
+A custom ```Rose::TextureParameter``` can be used to specify
+* Wrap S (x)
+* Wrap T (y)
+* Minify Filter
+* Magnify Filter
+
+Rose defaults to filtering images using linear filtering, which can make pixel art look fuzzy. To specify a custom filtering mode, create a ```Rose::TextureParameter``` and use it as a second argument in ```createTexture```. Pixel art looks best with a ```Nearest``` filter.
+
 ```cpp
 const Rose::TextureParameter pixelArtParam = {
 	Rose::WrapMode::Repeat,
