@@ -1,3 +1,43 @@
+# Build directories
+build/
+bin/
+out/
+dist/
+
+# CMake build files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+
+# Object files and archives
+*.o
+*.obj
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.pdb
+
+# IDE/editor specific
+.vscode/
+*.user
+*.suo
+*.log
+
+
+# Other temp files
+*.tmp
+*.temp
+
+#Other
 .DS_Store
 
 /build
