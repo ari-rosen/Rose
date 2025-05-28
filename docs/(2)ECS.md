@@ -19,6 +19,12 @@ public:
 	}
 };
 ```
+
+To delete an object, use the scene's ```destroyGameObject()```
+```cpp
+destroyGameObject(exampleObject);
+```
+
 ## Components
 A ```Rose::GameObject``` is just an alias for an ```unsigned int```, so it does not contain any methods or components itself
 
