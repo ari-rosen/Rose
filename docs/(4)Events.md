@@ -8,36 +8,51 @@ Currently supported events:
 
 ### Key Pressed
 ```Rose::KeyPressedEvent```
+
 Triggered when a key is pressed
+
 Additional methods:
+
 * ```getKeyCode``` -> returns the number corresponding to the key pressed
 * ```getRepeatCount``` -> returns the number of times the key has been triggered if held
 
 ### Key Released
 ```Rose::KeyReleasedEvent```
+
 Triggered when a key is released
+
 Additional methods:
+
 * ```getKeyCode``` -> returns the number corresponding to the key pressed
 
 ### Mouse Moved
 ```Rose::MouseMovedEvent```
+
 Triggered when the mouse's position changes
+
 Additional methods:
+
 * ```getX``` -> Returns the new mouse x position
 * ```getY``` -> Returns the new mouse y position
 
 ### Mouse Button Pressed
 ```Rose::MouseButtonPressedEvent```
+
 Triggered when any button on the mouse is pressed
+
 Additional methods:
+
 * ```getButtonPressed``` -> Returns which button was pressed
 * ```getAction``` -> Returns what action the mouse did (click/release)
 * ```getMods``` -> Returns what modifier keys were held (shift, ctrl, etc.)
 
 ### Window Closed
 ```Rose::WindowCloseEvent```
+
 Triggered when the user exits the program
+
 No additional methods
+
 
 ## Event Handling
 Events can be handled in an onEvent function in ```Rose::Scene``` and ```Rose::Application```
