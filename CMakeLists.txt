@@ -5,7 +5,6 @@ project(RoseEngine C CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 
 add_library(RoseEngine SHARED
     RoseEngine/src/Rose/Core/Application.cpp
@@ -44,11 +43,19 @@ target_include_directories(RoseEngine PUBLIC
 
 add_subdirectory(RoseEngine/dependencies/glad)
 add_subdirectory(RoseEngine/dependencies/glfw)
+find_library(COCOA_FRAMEWORK Cocoa REQUIRED)
+find_library(OpenGL_FRAMEWORK OpenGL REQUIRED)
+find_library(IOKIT_FRAMEWORK IOKit REQUIRED)
 
 target_link_libraries(RoseEngine PRIVATE
-    "-framework Cocoa"
-    "-framework OpenGL"
-    "-framework IOKit"
+    ${COCOA_FRAMEWORK}
+    ${OpenGL_FRAMEWORK}
+    ${IOKIT_FRAMEWORK}
     glfw
     glad
+)
+
+install(TARGETS RoseEngine
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
 )
