@@ -1,12 +1,7 @@
 # Textures
-A texture can be create by using a scene's ```createTexture``` method, along with an image
+A texture can be create by using the ```createTexture``` method from ```Rose::Scene```, along with an image
 ```cpp
-private:
-	Rose::TextureID texture;
-public:
-	void onStart() override {
-		texture = createTexture("image.png");
-	}
+Rose::TextureID texture = createTexture("path/to/image.png");
 ```
 Optionally, a ```Rose::TextureParameter``` can be specified as well.
 
