@@ -32,6 +32,7 @@ target_precompile_headers(RoseEngine PRIVATE RoseEngine/src/pch.hpp)
 target_compile_definitions(RoseEngine PRIVATE
     ROSE_PLATFORM_MACOS
     ROSE_BUILD_DYLIB
+    ROSE_ENGINE_SRC_PATH="${CMAKE_CURRENT_SOURCE_DIR}/RoseEngine/src"
 )
 
 target_include_directories(RoseEngine PUBLIC

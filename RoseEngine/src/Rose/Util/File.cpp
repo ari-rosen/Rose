@@ -15,7 +15,7 @@ std::filesystem::path createPath(const std::filesystem::path &relative) {
 
     return rootPath/relative;
 }
-
+/*
 std::filesystem::path getProjectSrcDirMacOS() {
     Dl_info info;
     dladdr((void*)&getProjectSrcDirMacOS, &info);  // Get path to the .dylib
@@ -31,9 +31,17 @@ std::filesystem::path getProjectSrcDirMacOS() {
     folder = dirname(pathCopy);
 
     std::filesystem::path projectRoot = folder;
+    projectRoot /= "RoseEngine";
     projectRoot /= "src";
     
     return projectRoot;
+}
+*/
+std::filesystem::path getProjectSrcDirMacOS() {
+#ifdef ROSE_ASSETS_ROOT_PATH
+    return std::filesystem::path(ROSE_ASSETS_ROOT_PATH);
+#endif
+    return "";
 }
 
 
