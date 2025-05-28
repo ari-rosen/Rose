@@ -6,6 +6,7 @@ After compiling the engine into a library and linking it, try this test:
 ```cpp
 // main.cpp
 
+#define ROSE_PLATFORM_MACOS
 #include <Rose/Rose.hpp>
 
 int main() {
