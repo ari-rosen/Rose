@@ -13,7 +13,7 @@ Rose supports MacOS, with planned Windows support
 The plan for Rose is to become a simple, easy to use framework for creating simple games that doesn't feel as overwhelming as a fully fledged AAA Game Engine feels. That being said, Rose will continue to receive features to improve the user experience of creating games.
 
 ### Planned Features
-* Improved user import system
+* Improved user input system
 * Windows Support
 * Easier drawing features (drawing simple shapes like rectangles or circles)
 
