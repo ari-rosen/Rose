@@ -17,7 +17,7 @@ This should result in a blank window opening with the title ```Rose Engine```
 
 You can edit the title of the window in the ```Rose::Application``` constructor
 ```cpp
-Rose::Application app(1920, 1080, "Custom Title"); 
+Rose::Application app("Custom Window Title", 1920, 1080); 
 ```
 
 To create a starter scene, create a derived class of ```Rose::Scene```
