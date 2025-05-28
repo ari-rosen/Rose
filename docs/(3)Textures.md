@@ -19,12 +19,12 @@ A custom ```Rose::TextureParameter``` can be used to specify
 Rose defaults to filtering images using linear filtering, which can make pixel art look fuzzy. To specify a custom filtering mode, create a ```Rose::TextureParameter``` and use it as a second argument in ```createTexture```. Pixel art looks best with a ```Nearest``` filter.
 
 ```cpp
-const Rose::TextureParameter pixelArtParam = {
+const Rose::TextureParameter pixelArtParam(
 	Rose::WrapMode::Repeat,
 	Rose::WrapMode::Repeat,
 	Rose::FilterMode::LinearMipmapNearest 
 	Rose::FilterMode::Nearest
-};
+);
 texture = createTexture("image.png", pixelArtParam);
 ```
 To bind a ```Rose::TextureID``` to a ```Rose::GameObject```, use ```Rose::SpriteComponent```
