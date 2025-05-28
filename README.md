@@ -1,4 +1,4 @@
-# Rose   
+![Rose](brand/Rose.png)  
 ![MIT Licence](https://img.shields.io/badge/License-MIT%20-blue.svg)
 
 Rose is a 2D Game Engine written in C++ for MacOS that enables creation of 2D video games. Rose provides and Entity Component System, and Event System, and a Rendering System to allow the creation of complex environments. 
