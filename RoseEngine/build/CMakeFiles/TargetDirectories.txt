@@ -1,0 +1,4 @@
+/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/build/CMakeFiles/glad.dir
+/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/build/CMakeFiles/RoseEngine.dir
+/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/build/CMakeFiles/edit_cache.dir
+/Users/arirosen/Programing/cpp/RoseEngine/RoseEngine/build/CMakeFiles/rebuild_cache.dir

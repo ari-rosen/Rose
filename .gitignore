@@ -1,12 +1,10 @@
 .DS_Store
 
-RoseEngine/build/
-FlappyBird/
-RoseApp/
-Zelda/
+/build
+/Examples
 
-debug_run.sh
-flappy.sh
+.debug_run
+.flappy
 
 *.DS_Store
 *.clangd
