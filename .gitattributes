@@ -1,0 +1,2 @@
+# Ignore dependencies in language stats
+RoseEngine/dependencies/** linguist-vendored
