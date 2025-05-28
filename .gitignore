@@ -41,7 +41,6 @@ install_manifest.txt
 .DS_Store
 
 /build
-/Examples
 
 .debug_run
 .flappy
