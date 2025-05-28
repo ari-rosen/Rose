@@ -38,8 +38,8 @@ std::filesystem::path getProjectSrcDirMacOS() {
 }
 */
 std::filesystem::path getProjectSrcDirMacOS() {
-#ifdef ROSE_ASSETS_ROOT_PATH
-    return std::filesystem::path(ROSE_ASSETS_ROOT_PATH);
+#ifdef ROSE_ENGINE_SRC_PATH
+    return std::filesystem::path(ROSE_ENGINE_SRC_PATH);
 #endif
     return "";
 }
