@@ -8,6 +8,8 @@
     #else
         #define ROSE_API
     #endif
+#else
+    #error "A ROSE_PLATFORM must be specified!"
 #endif
 
 #define BIT(x) (1 << x)
