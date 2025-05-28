@@ -106,3 +106,26 @@ void onUpdate(float DeltaTime) override {
 	transform.Position.x += 1 * DeltaTime;
 }
 ```
+## Systems
+In Rose, a ```Rose::System``` can be created to manage behavior for entities
+```cpp
+class ExampleSystem : public Rose::System {
+	void onUpdate(std::set<Rose::GameObject> &objects, Rose::Scene *scene, float DeltaTime) {
+	}
+};
+```
+The ```onUpdate``` method in a ```Rose::System``` is called every frame
+
+The method allows access to a set of ```Rose::GameObject```s, and the scene that they belong to. ```Rose::System```s are independent from ```Rose::Scene```s, they oporate on the active scene regardless.
+
+To operate on the components, iterate over each object in the set
+```cpp
+class ExampleSystem : public Rose::System {
+	void onUpdate(std::set<Rose::GameObject> &objects, Rose::Scene *scene, float DeltaTime) {
+		for (const Rose::GameObject obj : objects) {
+			Rose::TransformComponent &transform = scene->getComponent<Rose::TransformComponent>(obj);
+			transform.Position.x += 5 * DeltaTime;
+		}
+	}
+};
+```
