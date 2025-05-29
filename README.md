@@ -5,8 +5,10 @@ Rose is a 2D Game Engine written in C++ for MacOS that enables creation of 2D vi
 
 [Documentation](docs)
 
-## Installation Guide
+## Installation
 An installation quick start guide can be found under [docs/InstallationGuide.md](docs/InstallationGuide.md)
+> It is highly recomended to use CMake for your application, but not required
+
 
 A tutorial for getting started can be found under [docs/(1)GettingStarted.md](docs/(1)GettingStarted.md) following sequential order (1) -> (2) -> (3) etc.
 
