@@ -27,6 +27,18 @@ void Scene::setRenderer(std::shared_ptr<Renderer> renderer) {
     registerSystem<RenderSystem>(renderer);
 }
 
+void Scene::setCameraPosition(const glm::vec2 newPos) {
+    m_CameraPosition = newPos;
+}
+void Scene::moveCamera(const glm::vec2 delta) {
+    m_CameraPosition += delta;
+}
+void Scene::setCameraZoom(const float newZoom) {
+    m_CameraZoom = newZoom;
+}
+
+
+
 GameObject Scene::createGameObject() {
     GameObject obj =  m_ObjectManager->createGameObject();
     m_SystemManager->onObjectCreation(obj);

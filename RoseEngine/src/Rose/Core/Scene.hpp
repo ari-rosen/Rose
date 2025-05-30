@@ -37,6 +37,10 @@ public:
     inline glm::mat4 getCameraViewMatrix() const {return glm::translate(glm::mat4(1.0f), glm::vec3(-m_CameraPosition, 0.0f));};
     inline float getCameraZoom() const { return m_CameraZoom; };
 
+    void setCameraPosition(const glm::vec2 newPos);
+    void moveCamera(const glm::vec2 delta);
+    void setCameraZoom(const float newZoom);
+
     template <typename T>
     void registerComponent() {
         m_ComponentManager->registerComponent<T>();
