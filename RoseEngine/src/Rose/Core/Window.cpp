@@ -6,6 +6,8 @@
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
+#include "Rose/Core/Input.hpp"
+
 namespace Rose {
 
 static uint8_t s_GLFWWindowCount = 0;
@@ -85,6 +87,8 @@ Window::Window(const WindowAttributes &winAttrib)
             windowData.EventCallbackFunction(event);
         }
     });
+
+    glfwSetKeyCallback(m_GLFWwindow, keyCallback);
 }
 
 Window::~Window() {
