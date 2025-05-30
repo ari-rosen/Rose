@@ -7,6 +7,8 @@
 #include "Rose/ComponentSystem/SystemManager.hpp"
 #include "Rose/Events/Event.hpp"
 
+#include "glm/gtc/matrix_transform.hpp"
+
 namespace Rose {
 
 using TextureID = uint32_t;
@@ -31,6 +33,9 @@ public:
     void startTimer(TimerID id);
     void pauseTimer(TimerID id);
     void deleteTimer(TimerID id);
+
+    inline glm::mat4 getCameraViewMatrix() const {return glm::translate(glm::mat4(1.0f), glm::vec3(-m_CameraPosition, 0.0f));};
+    inline float getCameraZoom() const { return m_CameraZoom; };
 
     template <typename T>
     void registerComponent() {
@@ -79,6 +84,9 @@ private:
     std::unique_ptr<ObjectManager> m_ObjectManager;
     std::unique_ptr<ComponentManager> m_ComponentManager;
     std::unique_ptr<SystemManager> m_SystemManager;
+
+    float m_CameraZoom;
+    glm::vec2 m_CameraPosition;
 };
 
 }

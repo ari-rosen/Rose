@@ -62,7 +62,7 @@ void Application::run() {
             m_ActiveScene->onUpdate(DeltaTime);
         }
 
-        m_Renderer->renderScene(m_Window.getGLFWWindow());
+        m_Renderer->renderScene(m_Window.getGLFWWindow(), m_ActiveScene->getCameraViewMatrix(), m_ActiveScene->getCameraZoom());
 
         m_Window.swapBuffers();
     } 

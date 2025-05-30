@@ -75,7 +75,7 @@ uint32_t Renderer::createTexture(const std::filesystem::path &path, const Textur
     return newTexture->ID();
 }
 
-void Renderer::renderScene(GLFWwindow *window) {
+void Renderer::renderScene(GLFWwindow *window, glm::mat4 view, float zoom) {
     m_Shader.use();
     
     glActiveTexture(GL_TEXTURE0);
@@ -84,12 +84,10 @@ void Renderer::renderScene(GLFWwindow *window) {
     glfwGetFramebufferSize(window, &winWidth, &winHeight);
     
     glm::mat4 projection = glm::ortho(
-        -winWidth / 2.0f, winWidth / 2.0f,
-        -winHeight / 2.0f, winHeight / 2.0f,
+        -winWidth / 2.0f / zoom,  winWidth / 2.0f / zoom,
+        -winHeight / 2.0f / zoom, winHeight / 2.0f / zoom,
         -1.0f, 1.0f
     );
-
-    glm::mat4 view = glm::mat4(1.0f);
 
     m_Shader.setUniformMat4("uProjection", projection);
     m_Shader.setUniformMat4("uView", view);

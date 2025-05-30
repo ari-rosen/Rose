@@ -29,7 +29,7 @@ public:
     
     uint32_t createTexture(const std::filesystem::path &path, const TextureParameter &params = TextureParameter());
     void bufferQuads(const GLfloat *instancedTransforms, size_t size, uint32_t instanceCount);
-    void renderScene(GLFWwindow *window);
+    void renderScene(GLFWwindow *window, glm::mat4 view, float zoom);
 
     inline void setInstanceCount(uint32_t count) { m_InstanceCount = count; }
 public:

@@ -8,6 +8,9 @@
 namespace Rose {
 
 Scene::Scene() {
+    m_CameraZoom = 1.0f;
+    m_CameraPosition = {0.0f, 0.0f};
+
     m_ObjectManager = std::make_unique<ObjectManager>();
     m_ComponentManager = std::make_unique<ComponentManager>();
     m_SystemManager = std::make_unique<SystemManager>();
