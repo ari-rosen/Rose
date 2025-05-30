@@ -14,7 +14,11 @@ int main() {
     app.run();
 }
 ```
+> Note that the inclusion of a #define to specify platform is absoutly required
+
 This should result in a blank window opening with the title ```Rose Engine```
+
+Windows created with Rose are not resizable
 
 You can edit the title of the window in the ```Rose::Application``` constructor
 ```cpp
@@ -29,7 +33,7 @@ public:
 	}
 	void onUpdate(float DeltaTime) override {
 	}
-	void onEvent(Rose::Event &e) override {
+	void onEvent(Rose::Event &e) override { // Implementation of onEvent is not strictly required
 	}
 };
 ```
