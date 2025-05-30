@@ -13,7 +13,7 @@ Triggered when a key is pressed
 
 Additional methods:
 
-* ```getKeyCode``` -> returns the number corresponding to the key pressed
+* ```getKeyCode``` -> returns the ```Rose::KeyCode``` corresponding to the key pressed
 * ```getRepeatCount``` -> returns the number of times the key has been triggered if held
 
 ### Key Released
