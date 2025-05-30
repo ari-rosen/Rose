@@ -6,8 +6,8 @@ namespace Rose {
 KeyEvent::KeyEvent(int32_t keyCode)
     : m_KeyCode(keyCode) {}
 
-int32_t KeyEvent::getKeyCode() const {
-    return m_KeyCode;
+KeyCode KeyEvent::getKeyCode() const {
+    return static_cast<KeyCode>(m_KeyCode);
 }
 
 int8_t KeyEvent::getCatagoryFlags() const {

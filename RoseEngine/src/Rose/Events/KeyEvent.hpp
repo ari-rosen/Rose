@@ -2,11 +2,13 @@
 #include "Rose/Core/Core.hpp"
 #include "Rose/Events/Event.hpp"
 
+#include "Rose/Core/KeyCode.hpp"
+
 namespace Rose {
 
 class ROSE_API KeyEvent : public Event {
 public:
-    int32_t getKeyCode() const;
+    KeyCode getKeyCode() const;
 
     int8_t getCatagoryFlags() const override; 
 protected:
