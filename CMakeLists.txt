@@ -11,6 +11,7 @@ add_library(RoseEngine SHARED
     RoseEngine/src/Rose/Core/Window.cpp
     RoseEngine/src/Rose/Core/Scene.cpp
     RoseEngine/src/Rose/Core/Timer.cpp
+    RoseEngine/src/Rose/Core/Input.cpp
     RoseEngine/src/Rose/Util/File.cpp
     RoseEngine/src/Rose/Events/Event.cpp
     RoseEngine/src/Rose/Events/KeyEvent.cpp
