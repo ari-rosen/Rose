@@ -56,12 +56,17 @@ Window::Window(const WindowAttributes &winAttrib)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glfwSetKeyCallback(m_GLFWwindow, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
-        
         WindowData &windowData = *(WindowData*)glfwGetWindowUserPointer(window); 
+        Rose::KeyCode keyCode = static_cast<Rose::KeyCode>(key);
+
         if (action == GLFW_PRESS || action == GLFW_REPEAT) {
+            if (action != GLFW_REPEAT)
+                Rose::Input::SetKeyState(keyCode, true);
+
             KeyPressedEvent event(key, (action == GLFW_REPEAT) ? 1 : 0);
             windowData.EventCallbackFunction(event);
         } else if (action == GLFW_RELEASE) {
+            Rose::Input::SetKeyState(keyCode, false);
             KeyReleasedEvent event(key);
             windowData.EventCallbackFunction(event);
         }
@@ -86,8 +91,6 @@ Window::Window(const WindowAttributes &winAttrib)
             windowData.EventCallbackFunction(event);
         }
     });
-
-    glfwSetKeyCallback(m_GLFWwindow, keyCallback);
 }
 
 Window::~Window() {
