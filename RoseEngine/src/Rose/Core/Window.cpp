@@ -1,11 +1,10 @@
 #include "Rose/Core/Window.hpp"
-#include "Rose/Events/KeyEvent.hpp"
-#include "Rose/Events/MouseEvent.hpp"
-#include "Rose/Events/ApplicationEvent.hpp"
-
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
+#include "Rose/Events/KeyEvent.hpp"
+#include "Rose/Events/MouseEvent.hpp"
+#include "Rose/Events/ApplicationEvent.hpp"
 #include "Rose/Core/Input.hpp"
 
 namespace Rose {
