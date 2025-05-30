@@ -2,6 +2,7 @@
 
 #include "Rose/Core/Core.hpp"
 #include "Rose/Core/Application.hpp"
+#include "Rose/Core/Input.hpp"
 #include "Rose/Events/KeyEvent.hpp"
 #include "Rose/Events/MouseEvent.hpp"
 #include "Rose/ComponentSystem/Component.hpp"
