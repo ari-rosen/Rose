@@ -23,7 +23,7 @@ Triggered when a key is released
 
 Additional methods:
 
-* ```getKeyCode``` -> returns the number corresponding to the key pressed
+* ```getKeyCode``` -> returns the ```Rose::KeyCode``` corresponding to the key pressed
 
 ### Mouse Moved
 ```Rose::MouseMovedEvent```
