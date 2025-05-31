@@ -16,12 +16,14 @@ def create_rose_app(project_name):
     src_dir = os.path.join(project_dir, "src")
     assets_dir = os.path.join(project_dir, "Assets")
     scenes_dir = os.path.join(assets_dir, "Scenes")
+    textures_dir = os.path.join(assets_dir, "Textures")
 
     # Create folders
     create_dir(project_dir)
     create_dir(src_dir)
     create_dir(assets_dir)
     create_dir(scenes_dir)
+    create_dir(textures_dir)
 
     # Create CMakeLists.txt
     create_file(os.path.join(project_dir, "CMakeLists.txt"), f"""\
@@ -39,6 +41,8 @@ add_subdirectory(
     ../../RoseEngine
     RoseEngine-build
 )
+
+target_compile_definitions(RoseEngine PRIVATE ROSE_ASSETS_PATH=\"${CMAKE_SOURCE_DIR}/Assets\")
 
 target_include_directories({project_name} PRIVATE ${{CMAKE_SOURCE_DIR}}/../../RoseEngine/src)
 

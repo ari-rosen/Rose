@@ -37,8 +37,6 @@ void Scene::setCameraZoom(const float newZoom) {
     m_CameraZoom = newZoom;
 }
 
-
-
 GameObject Scene::createGameObject() {
     GameObject obj =  m_ObjectManager->createGameObject();
     m_SystemManager->onObjectCreation(obj);
@@ -46,11 +44,20 @@ GameObject Scene::createGameObject() {
 }
 
 TextureID Scene::createTexture(const std::filesystem::path &path, const TextureParameter &params) {
-    return app->getRenderer()->createTexture(path, params);
+    std::filesystem::path abs;
+#ifdef ROSE_ASSETS_PATH
+    abs = std::filesystem::path(ROSE_ASSETS_PATH) / "Textures" / path;
+#endif
+    return app->getRenderer()->createTexture(abs, params);
 }
 
 TextureID Scene::createTexture(const std::filesystem::path &path) {
-    return app->getRenderer()->createTexture(path, TextureParameter());
+    std::filesystem::path abs;
+#ifdef ROSE_ASSETS_PATH
+    abs = std::filesystem::path(ROSE_ASSETS_PATH) / "Textures" / path;
+#endif
+
+    return app->getRenderer()->createTexture(abs, TextureParameter());
 }
 
 void Scene::destroyGameObject(GameObject obj) {
