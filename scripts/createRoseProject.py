@@ -42,7 +42,7 @@ add_subdirectory(
     RoseEngine-build
 )
 
-target_compile_definitions(RoseEngine PRIVATE ROSE_ASSETS_PATH=\"${CMAKE_SOURCE_DIR}/Assets\")
+target_compile_definitions(RoseEngine PRIVATE ROSE_ASSETS_PATH=\"${{CMAKE_SOURCE_DIR}}/Assets\")
 
 target_include_directories({project_name} PRIVATE ${{CMAKE_SOURCE_DIR}}/../../RoseEngine/src)
 
