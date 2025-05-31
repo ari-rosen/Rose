@@ -58,8 +58,8 @@ void Application::run() {
         updateDeltaTime();
         
         if (m_ActiveScene) {
-            m_ActiveScene->updateSystems(DeltaTime);
             m_ActiveScene->onUpdate(DeltaTime);
+            m_ActiveScene->updateSystems(DeltaTime);
         }
 
         m_Renderer->renderScene(m_Window.getGLFWWindow(), m_ActiveScene->getCameraViewMatrix(), m_ActiveScene->getCameraZoom());
