@@ -10,6 +10,7 @@
 namespace Rose {
 
 class Renderer;
+class UIRenderer;
 
 class ROSE_API Application {
 public:
@@ -34,6 +35,7 @@ private:
     Window m_Window;
     
     std::shared_ptr<Renderer> m_Renderer;
+    std::shared_ptr<UIRenderer> m_UIRenderer;
     
     bool m_Running;
 

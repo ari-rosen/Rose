@@ -10,6 +10,7 @@ public:
     ObjectManager();
 
     GameObject createGameObject();
+    ComponentFlags getComponentFlags(GameObject obj);
     void destroyGameObject(GameObject obj);
 
     inline std::array<ComponentFlags, MAX_OBJECTS>& getFlagsArray() { return m_Flags; }

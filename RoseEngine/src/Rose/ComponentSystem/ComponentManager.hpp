@@ -40,6 +40,10 @@ public:
             componentArray->onObjectDeath(obj);
         } 
     }
+
+    std::unordered_map<std::string, ComponentFlag> getComponentIDMap() {
+        return m_ComponetIdMap;
+    }
 private:
     ComponentFlag nextAvaliableComponentFlag = 0;
     std::unordered_map<std::string, ComponentFlag> m_ComponetIdMap{};

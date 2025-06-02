@@ -2,6 +2,7 @@
 #include "Rose/ComponentSystem/Component.hpp"
 #include "Rose/ComponentSystem/System.hpp"
 #include "Rose/Graphics/Renderer.hpp"
+#include "Rose/Graphics/UIRenderer.hpp"
 #include "Rose/ComponentSystem/SystemManager.hpp"
 #include "Rose/Core/Application.hpp"
 
@@ -18,6 +19,8 @@ Scene::Scene() {
     registerComponent<ViewComponent>();
     registerComponent<TransformComponent>();
     registerComponent<SpriteComponent>();
+    registerComponent<UIComponent>();
+    registerComponent<TextLabelComponent>();
     registerComponent<RigidBodyComponent>();
 }
 
@@ -25,6 +28,10 @@ Scene::~Scene() {}
 
 void Scene::setRenderer(std::shared_ptr<Renderer> renderer) {
     registerSystem<RenderSystem>(renderer);
+}
+
+void Scene::setUIRenderer(std::shared_ptr<UIRenderer> uiRenderer) {
+    registerSystem<UIRenderSystem>(uiRenderer);
 }
 
 void Scene::setCameraPosition(const glm::vec2 newPos) {

@@ -15,6 +15,10 @@ GameObject ObjectManager::createGameObject() {
     return newObj;
 }
 
+ComponentFlags ObjectManager::getComponentFlags(GameObject obj) {
+    return m_Flags[obj];
+}
+
 void ObjectManager::destroyGameObject(GameObject obj) {
     m_Flags[obj].reset();
     m_LivingObjectCount--;

@@ -21,6 +21,17 @@ struct ROSE_API SpriteComponent {
     uint32_t TextureID;
 };
 
+struct ROSE_API UIComponent {
+    bool Visible;
+    glm::vec2 Position;
+};
+
+struct ROSE_API TextLabelComponent {
+    std::string Text; 
+    float Scale;
+    glm::vec3 Color;
+};
+
 struct ROSE_API RigidBodyComponent {
     glm::vec2 Acceleration;
     glm::vec2 Velocity;

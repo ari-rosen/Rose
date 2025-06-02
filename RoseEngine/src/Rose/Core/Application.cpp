@@ -1,21 +1,26 @@
 #include "Rose/Core/Application.hpp"
 
 #include "Rose/Core/Core.hpp"
+#include "Rose/Util/File.hpp"
 
 #include "Rose/Events/ApplicationEvent.hpp"
 #include "Rose/Events/Event.hpp"
 
 #include "Rose/Graphics/Renderer.hpp"
+#include "Rose/Graphics/UIRenderer.hpp"
 
 #include "GLFW/glfw3.h"
 
 namespace Rose {
 
 Application::Application() 
-    : m_Running(true), m_Window(WindowAttributes()), m_Renderer(std::make_shared<Renderer>()) 
+    : m_Running(true), m_Window(WindowAttributes()), m_Renderer(std::make_shared<Renderer>())
 {
     m_Window.setEventCallbackFunction(std::bind(&Application::onEventCore, this, std::placeholders::_1));
     m_Renderer->init();
+    m_UIRenderer = std::make_shared<UIRenderer>();
+    std::filesystem::path fontPath = File::createPath("Rose/Graphics/Assets/Fonts/Roboto-Regular.ttf");
+    m_UIRenderer->Init(fontPath);
 }
 
 Application::Application(const char *title, uint32_t winWidth, uint32_t winHeight)
@@ -23,6 +28,10 @@ Application::Application(const char *title, uint32_t winWidth, uint32_t winHeigh
 {
     m_Window.setEventCallbackFunction(std::bind(&Application::onEventCore, this, std::placeholders::_1));
     m_Renderer->init();
+    m_UIRenderer = std::make_shared<UIRenderer>();
+    std::filesystem::path fontPath = File::createPath("Rose/Graphics/Assets/Fonts/Roboto-Regular.ttf");
+    m_UIRenderer->Init(fontPath);
+
 }
 
 Application::~Application() {}
@@ -48,6 +57,7 @@ void Application::onWindowClose(WindowCloseEvent &e) {
 void Application::setActiveScene(std::shared_ptr<Scene> scene) {
     m_ActiveScene = std::move(scene);
     m_ActiveScene->app = this;
+    m_ActiveScene->setUIRenderer(m_UIRenderer);
     m_ActiveScene->setRenderer(m_Renderer);
     m_ActiveScene->onStart();
 }
@@ -64,6 +74,9 @@ void Application::run() {
 
         m_Renderer->renderScene(m_Window.getGLFWWindow(), m_ActiveScene->getCameraViewMatrix(), m_ActiveScene->getCameraZoom());
 
+        glm::mat4 projection = glm::ortho(0.0f, (float)m_Window.getWidth(), 0.0f, (float)m_Window.getHeight());
+        m_UIRenderer->render(projection);
+
         m_Window.swapBuffers();
     } 
 
@@ -74,5 +87,11 @@ void Application::updateDeltaTime() {
     DeltaTime = CurrentFrameTime - LastFrameTime;
     LastFrameTime = CurrentFrameTime;
 }
+
+
+
+
+
+
 
 }

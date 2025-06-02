@@ -14,6 +14,7 @@ namespace Rose {
 using TextureID = uint32_t;
 
 class Renderer;
+class UIRenderer;
 class Application;
 struct TextureParameter;
 
@@ -28,6 +29,7 @@ public:
 
     void destroyGameObject(GameObject obj);
     void setRenderer(std::shared_ptr<Renderer> renderer);
+    void setUIRenderer(std::shared_ptr<UIRenderer> uiRenderer);
 
     TimerID createTimer(uint32_t milliseconds, const std::function<void()> &func, bool repeat);
     void startTimer(TimerID id);
@@ -36,6 +38,7 @@ public:
 
     inline glm::mat4 getCameraViewMatrix() const {return glm::translate(glm::mat4(1.0f), glm::vec3(-m_CameraPosition, 0.0f));};
     inline float getCameraZoom() const { return m_CameraZoom; };
+    inline glm::vec2 getCameraPosition() const { return m_CameraPosition; }
 
     void setCameraPosition(const glm::vec2 newPos);
     void moveCamera(const glm::vec2 delta);
@@ -54,6 +57,12 @@ public:
     template <typename T>
     void insertComponentData(GameObject obj, T component) {
         m_ComponentManager->insertComponentData<T>(obj, component);
+    }
+
+    template <typename T>
+    bool hasComponent(GameObject obj) {
+        ComponentFlag bit = m_ComponentManager->getComponentIDMap().at(typeid(T).name());
+        return m_ObjectManager->getComponentFlags(obj).test(bit);
     }
 
     template <typename T>

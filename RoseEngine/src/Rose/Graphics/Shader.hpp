@@ -17,6 +17,7 @@ public:
     
     void setUniformMat4(const std::string &name, const glm::mat4 &mat);
     void setInt(const std::string &name, const int32_t num);
+    void setVec3(const std::string &name, const glm::vec3 &vec);
 private:
     GLuint m_Program;
 private:

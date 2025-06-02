@@ -79,6 +79,7 @@ void Renderer::renderScene(GLFWwindow *window, glm::mat4 view, float zoom) {
     m_Shader.use();
     
     glActiveTexture(GL_TEXTURE0);
+    glEnable(GL_BLEND);
 
     int32_t winWidth, winHeight;
     glfwGetWindowSize(window, &winWidth, &winHeight);
@@ -143,9 +144,19 @@ void RenderSystem::onUpdate(std::set<GameObject> &objects, Scene *scene, float D
     uint32_t instanceCount = 0;
     
     for (const auto obj : objects) {
+        if (!scene->hasComponent<ViewComponent>(obj) || !scene->hasComponent<TransformComponent>(obj) || scene->hasComponent<UIComponent>(obj)) {
+            continue;
+        }
         const auto &transform = scene->getComponent<TransformComponent>(obj);
         const auto &view = scene->getComponent<ViewComponent>(obj);
-        const auto &sprite = scene->getComponent<SpriteComponent>(obj);
+        
+        TextureID texture;
+        if (scene->hasComponent<SpriteComponent>(obj)) {
+            texture = scene->getComponent<SpriteComponent>(obj).TextureID;
+        }
+        else {
+            texture = 0;
+        }
 
         if (!view.Visable) {
             continue;
@@ -161,7 +172,7 @@ void RenderSystem::onUpdate(std::set<GameObject> &objects, Scene *scene, float D
         m_RendererRef->instances.push_back(InstanceData{
             .Transform = model,
             .Layer = view.Layer,
-            .TextureID = sprite.TextureID
+            .TextureID = texture
         });
 
         m_RendererRef->setInstanceCount(instanceCount);

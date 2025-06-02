@@ -15,6 +15,8 @@ public:
 template<typename T>
 class ROSE_API ComponentArray : public ComponentArrayI {
 public:
+    ComponentArray() :m_Size(0) {}
+
     void insertComponentData(GameObject obj, T componentData) {
         m_ObjectToIndexMap[obj] = m_Size;
         m_IndexToObjectMap[m_Size] = obj;
@@ -37,7 +39,8 @@ public:
         m_Size --;
     }
     T& getComponentData(GameObject obj) {
-        return m_Array[obj];
+        size_t index = m_ObjectToIndexMap.at(obj);
+        return m_Array[index];
     }
     void onObjectDeath(GameObject obj) override {
         if (m_ObjectToIndexMap.find(obj) != m_ObjectToIndexMap.end()) {

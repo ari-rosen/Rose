@@ -51,6 +51,11 @@ void Shader::setInt(const std::string &name, const int32_t num) {
     glUniform1i(location, num);
 }
 
+void Shader::setVec3(const std::string &name, const glm::vec3 &vec) {
+    auto location = glGetUniformLocation(m_Program, name.c_str());
+    glUniform3f(location, vec.x, vec.y, vec.z);
+}
+
 std::string Shader::readFile(const std::filesystem::path &path) {
     std::ifstream file(path, std::ios::in | std::ios::binary | std::ios::ate);
     if (!file) {

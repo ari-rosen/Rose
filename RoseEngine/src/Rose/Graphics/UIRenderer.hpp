@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Rose/Core/Core.hpp"
+#include "Rose/ComponentSystem/System.hpp"
 #include "Rose/Graphics/Texture.hpp"
 #include "Rose/Graphics/Shader.hpp"
 #include "Rose/Graphics/Buffer.hpp"
@@ -19,10 +20,10 @@ public:
 public:
     void Init(std::filesystem::path &fontPath);
     void queueText(const RenderCommand &cmd);
-    void render(glm::mat4 projection);
+    void render(const glm::mat4 &projection);
 private:
     struct Glyph {
-        Texture texture;
+        std::shared_ptr<Texture> texture;
         glm::ivec2 size;
         glm::ivec2 bearing;
         GLuint advance;
@@ -35,6 +36,14 @@ private:
     VertexArray m_VAO;
     VertexBuffer m_VBO;
 
+};
+
+class UIRenderSystem : public System {
+public:
+    UIRenderSystem(std::shared_ptr<UIRenderer> ui);
+    void onUpdate(std::set<GameObject> &objects, Scene *scene, float DeltaTime) override;
+private:
+    std::shared_ptr<UIRenderer> m_UIRendererRef;
 };
 
 }

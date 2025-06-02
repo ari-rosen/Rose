@@ -23,6 +23,7 @@ add_library(RoseEngine SHARED
     src/Rose/Graphics/Buffer.cpp
     src/Rose/Graphics/Shader.cpp
     src/Rose/Graphics/Renderer.cpp
+    src/Rose/Graphics/UIRenderer.cpp
     src/Rose/Graphics/Image.cpp
     src/Rose/Graphics/Texture.cpp
     src/Rose/Graphics/TextureParam.cpp
@@ -47,6 +48,8 @@ target_include_directories(RoseEngine PUBLIC
 
 add_subdirectory(dependencies/glad)
 add_subdirectory(dependencies/glfw)
+
+set(FT_DISABLE_HARFBUZZ ON CACHE BOOL "" FORCE)
 add_subdirectory(dependencies/freetype)
 
 find_library(COCOA_FRAMEWORK Cocoa REQUIRED)
