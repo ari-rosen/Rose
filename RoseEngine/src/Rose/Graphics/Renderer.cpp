@@ -81,7 +81,7 @@ void Renderer::renderScene(GLFWwindow *window, glm::mat4 view, float zoom) {
     glActiveTexture(GL_TEXTURE0);
 
     int32_t winWidth, winHeight;
-    glfwGetFramebufferSize(window, &winWidth, &winHeight);
+    glfwGetWindowSize(window, &winWidth, &winHeight);
     
     glm::mat4 projection = glm::ortho(
         -winWidth / 2.0f / zoom,  winWidth / 2.0f / zoom,
