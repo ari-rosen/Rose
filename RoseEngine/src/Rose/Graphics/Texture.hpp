@@ -13,6 +13,7 @@ public:
     ~Texture();
 
     void generate(const std::filesystem::path &imagePath, const TextureParameter &params = TextureParameter());
+    void generateFromBitmap(unsigned char *buffer, int32_t width, int32_t height);
 
     void bind() const;
 

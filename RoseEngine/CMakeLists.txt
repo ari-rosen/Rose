@@ -41,10 +41,13 @@ target_include_directories(RoseEngine PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/glfw/include
     ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/glad/include
     ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/
+    ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/freetype/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/freetype/include/freetype2
 )
 
 add_subdirectory(dependencies/glad)
 add_subdirectory(dependencies/glfw)
+add_subdirectory(dependencies/freetype)
 
 find_library(COCOA_FRAMEWORK Cocoa REQUIRED)
 find_library(OpenGL_FRAMEWORK OpenGL REQUIRED)
@@ -56,6 +59,7 @@ target_link_libraries(RoseEngine PRIVATE
     ${IOKIT_FRAMEWORK}
     glfw
     glad
+    freetype
 )
 
 install(TARGETS RoseEngine

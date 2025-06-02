@@ -24,6 +24,27 @@ void Texture::generate(const std::filesystem::path &imagePath, const TexturePara
 
 }
 
+void Texture::generateFromBitmap(unsigned char *buffer, int32_t height, int32_t width) {
+    glGenTextures(1, &m_ID);
+    bind();
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    glTexImage2D(
+        GL_TEXTURE_2D,
+        0,
+        GL_RED,
+        width,
+        height,
+        0,
+        GL_RED,
+        GL_UNSIGNED_BYTE,
+        buffer
+    );
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);  
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);  
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);     
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);  
+}
+
 void Texture::bind() const {
     glBindTexture(GL_TEXTURE_2D, m_ID);
 }
